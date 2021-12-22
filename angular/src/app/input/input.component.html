@@ -1,0 +1,18 @@
+<div>
+    <input type="file" (change)="onFileChanged($event)" />
+    <input type="button" (click)="onUpload()" value=" Click upload">
+</div><br>
+<div *ngIf=fileError>
+    File Size should be less than 15MB
+</div>
+<div *ngIf=uploadSuccess>  
+    File upload successfully..
+</div>
+<!-- 
+<div class="container row">
+
+    <div class="col-md-6">
+        <input type="button" (click)="downloadFile()" value="Get Image">
+
+    </div> 
+</div>-->
