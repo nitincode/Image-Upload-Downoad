@@ -75,4 +75,30 @@ export class InputComponent implements OnInit {
     const file = new File([data], 'report.png');
     FileSaver.saveAs(file);
 }
+
+
+
+
+downloadFileEXcel(): void {
+  
+  this.download1().subscribe(data => {
+    console.log(data);
+    // save image to disk
+    const blob = new Blob([data]);
+    this.saveAsBlob1(blob)
+  });
+}
+
+download1(): Observable<Blob> {
+  return this.http.get('http://localhost:8080/api/v2/downloadExcel/', {
+    responseType: 'blob'
+  });
+} 
+
+
+private saveAsBlob1(data: any) {
+  const file = new File([data], 'report.xlsx');
+  FileSaver.saveAs(file);
+}
+
 }
